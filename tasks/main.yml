@@ -1,0 +1,13 @@
+---
+- name: Install git package
+  become: true
+  ansible.builtin.yum:
+    name: git
+
+- name: Clone lighthouse repo
+  become: true
+  ansible.builtin.git:
+    repo: "https://github.com/VKCOM/lighthouse.git"
+    dest: "/etc/lighthouse"
+    version: master
+...
