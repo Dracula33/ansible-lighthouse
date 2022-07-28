@@ -8,6 +8,6 @@
   become: true
   ansible.builtin.git:
     repo: "https://github.com/VKCOM/lighthouse.git"
-    dest: "/etc/lighthouse"
-    version: master
+    dest: "{{ lighthouse_install_directory }}/lighthouse"
+    version: "{{ lighthouse_version }}"
 ...
