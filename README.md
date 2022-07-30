@@ -1,31 +1,43 @@
-Role Name
+Ansible Lighthouse
 =========
 
-A brief description of the role goes here.
+Simple role to download and unpack Lighthouse
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+Lighthouse must be run inside any webserver. You must install it by yourself
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+There are very little variables:
 
-Dependencies
-------------
+1. Directory where Lighthouse is going to be installed in
+```yaml
+lighthouse_install_directory: "/etc"
+```
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+2. Name of Lighthouse repo branch that is going to be cloned
+```yaml
+lighthouse_version: master
+```
 
 Example Playbook
 ----------------
 
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+```yaml
+- name: Install lighthouse
+  hosts: lighthouse
+  vars:
+    lighthouse_install_directory: /etc
+  roles:
+    - lighthouse
+```
+
+There is no example tasks to deploy requirement components
 
 License
 -------
@@ -35,4 +47,4 @@ BSD
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+The role is created by Netology Student as a homework by Igor Soldatov.
